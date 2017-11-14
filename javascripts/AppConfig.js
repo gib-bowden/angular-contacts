@@ -8,7 +8,7 @@ app.config(function($routeProvider){
     $routeProvider
         .when("/login", {
             templateUrl: 'partials/login.html',
-            controller: 'FavoritesCtrl'
+            controller: 'LoginCtrl'
         })
         .when("/contacts/favorites", {
             templateUrl: 'partials//contacts/favorites.html',
@@ -20,7 +20,7 @@ app.config(function($routeProvider){
         })
         .when("/contacts/view", {
             templateUrl: 'partials/contacts/view.html',
-            controller: 'FavoritesCtrl'
+            controller: 'ViewCtrl'
         })
         .otherwise("/login");
 }); 
