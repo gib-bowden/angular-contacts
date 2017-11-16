@@ -3,7 +3,6 @@
 app.controller("LoginCtrl", function($location, $rootScope, $scope, AuthService){
     $scope.authenticate = () => {
         AuthService.authenticateGoogle().then((result) => {
-            console.log(result);
             $rootScope.uid = result.user.uid; 
             $scope.$apply(() => {
                 $location.url("/contacts/view"); 

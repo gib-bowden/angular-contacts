@@ -1,143 +1,144 @@
 {
-	"contacts": [{
+	"contacts": {
+		"0": {
 			"id": 1,
 			"firstName": "Gib",
 			"lastName": "Bowden",
 			"phone": "615-944-4766",
 			"email": "gibbowden@gmail.com",
-			"address": {
-				"street 1": "800 Woodland Street",
-				"street 2": "Unit 105",
-				"city": "Nashville",
-				"state": "TN",
-				"zip": "37206"
-			}
+			"street 1": "800 Woodland Street",
+			"street 2": "Unit 105",
+			"city": "Nashville",
+			"state": "TN",
+			"zip": "37206",
+			"isFavorite": false,
+			"uid": "Opiy3dYDrEMlyetIjEmmcOmL0Nk2"
 		},
-		{
+		"1": {
 			"id": 2,
 			"firstName": "Gib",
 			"lastName": "Bowden",
 			"phone": "615-944-4766",
 			"email": "gibbowden@gmail.com",
-			"address": {
-				"street 1": "800 Woodland Street",
-				"street 2": "Unit 105",
-				"city": "Nashville",
-				"state": "TN",
-				"zip": "37206"
-			}
+			"street 1": "800 Woodland Street",
+			"street 2": "Unit 105",
+			"city": "Nashville",
+			"state": "TN",
+			"zip": "37206",
+			"isFavorite": false,
+			"uid": "Opiy3dYDrEMlyetIjEmmcOmL0Nk2"
 		},
-		{
+		"2": {
 			"id": 3,
 			"firstName": "Gib",
 			"lastName": "Bowden",
 			"phone": "615-944-4766",
 			"email": "gibbowden@gmail.com",
-			"address": {
-				"street 1": "800 Woodland Street",
-				"street 2": "Unit 105",
-				"city": "Nashville",
-				"state": "TN",
-				"zip": "37206"
-			}
+			"street 1": "800 Woodland Street",
+			"street 2": "Unit 105",
+			"city": "Nashville",
+			"state": "TN",
+			"zip": "37206",
+			"isFavorite": false,
+			"uid": "Opiy3dYDrEMlyetIjEmmcOmL0Nk2"
 		},
-		{
+		"3": {
 			"id": 4,
 			"firstName": "Gib",
 			"lastName": "Bowden",
 			"phone": "615-944-4766",
 			"email": "gibbowden@gmail.com",
-			"address": {
-				"street 1": "800 Woodland Street",
-				"street 2": "Unit 105",
-				"city": "Nashville",
-				"state": "TN",
-				"zip": "37206"
-			}
+			"street 1": "800 Woodland Street",
+			"street 2": "Unit 105",
+			"city": "Nashville",
+			"state": "TN",
+			"zip": "37206",
+			"isFavorite": false,
+			"uid": "Opiy3dYDrEMlyetIjEmmcOmL0Nk2"
 		},
-		{
+		"4": {
 			"id": 5,
 			"firstName": "Gib",
 			"lastName": "Bowden",
 			"phone": "615-944-4766",
 			"email": "gibbowden@gmail.com",
-			"address": {
-				"street 1": "800 Woodland Street",
-				"street 2": "Unit 105",
-				"city": "Nashville",
-				"state": "TN",
-				"zip": "37206"
-			}
+			"street 1": "800 Woodland Street",
+			"street 2": "Unit 105",
+			"city": "Nashville",
+			"state": "TN",
+			"zip": "37206",
+			"isFavorite": false,
+			"uid": "Opiy3dYDrEMlyetIjEmmcOmL0Nk2"
 		},
-		{
+		"5": {
 			"id": 6,
 			"firstName": "Gib",
 			"lastName": "Bowden",
 			"phone": "615-944-4766",
 			"email": "gibbowden@gmail.com",
-			"address": {
-				"street 1": "800 Woodland Street",
-				"street 2": "Unit 105",
-				"city": "Nashville",
-				"state": "TN",
-				"zip": "37206"
-			}
+			"street 1": "800 Woodland Street",
+			"street 2": "Unit 105",
+			"city": "Nashville",
+			"state": "TN",
+			"zip": "37206",
+			"isFavorite": false,
+			"uid": "Opiy3dYDrEMlyetIjEmmcOmL0Nk2"
 		},
-		{
+		"6": {
 			"id": 7,
 			"firstName": "Gib",
 			"lastName": "Bowden",
 			"phone": "615-944-4766",
 			"email": "gibbowden@gmail.com",
-			"address": {
-				"street 1": "800 Woodland Street",
-				"street 2": "Unit 105",
-				"city": "Nashville",
-				"state": "TN",
-				"zip": "37206"
-			}
+			"street 1": "800 Woodland Street",
+			"street 2": "Unit 105",
+			"city": "Nashville",
+			"state": "TN",
+			"zip": "37206",
+			"isFavorite": false,
+			"uid": "Opiy3dYDrEMlyetIjEmmcOmL0Nk2"
 		},
-		{
+		"7": {
 			"id": 8,
 			"firstName": "Gib",
 			"lastName": "Bowden",
 			"phone": "615-944-4766",
 			"email": "gibbowden@gmail.com",
-			"address": {
-				"street 1": "800 Woodland Street",
-				"street 2": "Unit 105",
-				"city": "Nashville",
-				"state": "TN",
-				"zip": "37206"
-			}
+			"street 1": "800 Woodland Street",
+			"street 2": "Unit 105",
+			"city": "Nashville",
+			"state": "TN",
+			"zip": "37206",
+			"isFavorite": false,
+			"uid": "Opiy3dYDrEMlyetIjEmmcOmL0Nk2"
 		},
-		{
+		"8": {
 			"id": 9,
 			"firstName": "Gib",
 			"lastName": "Bowden",
 			"phone": "615-944-4766",
 			"email": "gibbowden@gmail.com",
-			"address": {
-				"street 1": "800 Woodland Street",
-				"street 2": "Unit 105",
-				"city": "Nashville",
-				"state": "TN",
-				"zip": "37206"
-			}
+			"street 1": "800 Woodland Street",
+			"street 2": "Unit 105",
+			"city": "Nashville",
+			"state": "TN",
+			"zip": "37206",
+			"isFavorite": false,
+			"uid": "Opiy3dYDrEMlyetIjEmmcOmL0Nk2"
 		},
-		{
+		"9": {
 			"id": 10,
 			"firstName": "Gib",
 			"lastName": "Bowden",
 			"phone": "615-944-4766",
 			"email": "gibbowden@gmail.com",
-			"address": {
-				"street 1": "800 Woodland Street",
-				"street 2": "Unit 105",
-				"city": "Nashville",
-				"state": "TN",
-				"zip": "37206"
-			}
+			"street 1": "800 Woodland Street",
+			"street 2": "Unit 105",
+			"city": "Nashville",
+			"state": "TN",
+			"zip": "37206",
+			"isFavorite": false,
+			"uid": "Opiy3dYDrEMlyetIjEmmcOmL0Nk2"
 		}
-	]
+	}
 }
