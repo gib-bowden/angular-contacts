@@ -15,7 +15,7 @@ app.controller("NewCtrl", function($scope, $timeout, ContactService){
             console.log($scope.contact);
             ContactService.addNewContact($scope.contact).then((result) => {
                 $scope.contact={};
-                if (result.status === 400) {
+                if (result.status === 200) {
                     $scope.newContactForm.$setUntouched();
                     $scope.isSuccess = true;
                     alertTimeout(3); 
