@@ -9,8 +9,9 @@
     <title>Contacts</title>
 </head>
 <body ng-app="contactsApp">
-
+    <div ng-include="'./partials/navbar.html'"></div>
     <div ng-view class="col-xs-8 col-xs-offset-2"></div>
+
     <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
     <script type="text/javascript" src="./lib/node_modules/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="./lib/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -23,11 +24,11 @@
     <script type="text/javascript" src="./javascripts/AppConstants.js"></script>
     <script type="text/javascript" src="./javascripts/AppConfig.js"></script>
 
-    <!-- <script type="text/javascript" src="./javascripts/services/AuthService.js"></script> -->
+    <script type="text/javascript" src="./javascripts/services/AuthService.js"></script>
 
-    <script type="text/javascript" src="./javascripts/controllers/LoginCtrl.js"></script>
     <script type="text/javascript" src="./javascripts/controllers/contacts/FavoritesCtrl.js"></script>
     <script type="text/javascript" src="./javascripts/controllers/contacts/NewCtrl.js"></script>
     <script type="text/javascript" src="./javascripts/controllers/contacts/ViewCtrl.js"></script>
+    <script type="text/javascript" src="./javascripts/controllers/LoginCtrl.js"></script>
 </body>
 </html>
