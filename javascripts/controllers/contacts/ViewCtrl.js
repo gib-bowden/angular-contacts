@@ -6,7 +6,6 @@ app.controller("ViewCtrl", function($location, $rootScope, $scope, ContactServic
     const getContacts = () => {
         ContactService.getFbContacts($rootScope.uid).then((results) => {
             $scope.contacts = results;
-            console.log(results);   
         }).catch((err) => {
             console.log(err); 
         }); 
@@ -14,9 +13,8 @@ app.controller("ViewCtrl", function($location, $rootScope, $scope, ContactServic
 
     getContacts(); 
 
-    $scope.deleteMovie = (contactId) => {
+    $scope.deleteContact = (contactId) => {
          ContactService.deleteContact(contactId).then((result) => {
-            console.log(result); 
             getContacts();  
         }).catch((err) => {
             console.log(err); 
