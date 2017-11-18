@@ -1,5 +1,25 @@
 "use strict"; 
 
-app.controller("ViewCtrl", function($scope){
-    $scope.controller = "ViewCtrl"; 
+app.controller("ViewCtrl", function($rootScope, $scope, ContactService){
+    $scope.contacts = [];  
+    
+    const getContacts = () => {
+        ContactService.getFbContacts($rootScope.uid).then((results) => {
+            $scope.contacts = results;
+            console.log(results);   
+        }).catch((err) => {
+            console.log(err); 
+        }); 
+    };
+
+    getContacts(); 
+
+    $scope.deleteMovie = (contactId) => {
+         ContactService.deleteContact(contactId).then((result) => {
+            console.log(result); 
+            getContacts();  
+        }).catch((err) => {
+            console.log(err); 
+        });
+    };
 }); 

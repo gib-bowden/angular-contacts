@@ -1,6 +1,6 @@
 "use strict"; 
 
-app.controller("NewCtrl", function($scope, $timeout, ContactService){
+app.controller("NewCtrl", function($rootScope, $scope, $timeout, ContactService){
 
     const alertTimeout = (timeoutInSeconds) => {
         $timeout(() => {
@@ -8,10 +8,9 @@ app.controller("NewCtrl", function($scope, $timeout, ContactService){
         }, timeoutInSeconds * 1000);     
     };
 
-    // function to submit the form after all validation has occurred			
     $scope.submitForm = ()  => {
-    // check to make sure the form is completely valid
         if ($scope.newContactForm.$valid) {
+            $scope.contact.uid = $rootScope.uid;
             console.log($scope.contact);
             ContactService.addNewContact($scope.contact).then((result) => {
                 $scope.contact={};
@@ -32,3 +31,5 @@ app.controller("NewCtrl", function($scope, $timeout, ContactService){
         }
     };
 }); 
+
+
