@@ -6,8 +6,8 @@ app.controller("EditCtrl", function($location, $rootScope, $q, $routeParams, $sc
         return $q((resolve, reject) => {
             $timeout(() => {
                 $('.alert').alert('close');
-            }, timeoutInSeconds * 1000); 
-            resolve(); 
+                resolve(); 
+            }, timeoutInSeconds * 1000);  
         });    
     };
     
@@ -31,7 +31,7 @@ app.controller("EditCtrl", function($location, $rootScope, $q, $routeParams, $sc
                     $scope.editContactForm.$setUntouched();
                     $scope.isSuccess = true;
                     alertTimeout(3).then(() => {
-                        $location.path(`/contacts/view`);
+                        $location.path(`/contacts/view`); //update to return to previous path
                     }); 
                 }
                 else {
