@@ -7,7 +7,9 @@
         </div>
         <div ng-show="contacts.length" ng-repeat="contact in contacts" class="col-sm-6 col-md-4 contact">
             <div class="thumbnail">
-                <button ng-click="deleteContact(contact.id)" class="btn btn-warning delete-btn">X<i class="fa fa-trash-o"></i></i></button>   
+                <button ng-click="deleteContact(contact.id)" class="btn btn-danger delete-btn"><i class="fa fa-trash-o"></i></button>
+                <button ng-click="toggleFavorite(contact)" class="btn btn-default favorite-btn"><i ng-class="{'fa fa-star-o' : !contact.isFavorite, 'fa fa-star' : contact.isFavorite}"></i></button> 
+                <button ng-click="editContact(contact.id)" class="btn btn-default edit-btn"><i class="fa fa-pencil"></i></i></button>
                 <div class="caption">
                     <h3 class="name">{{contact.firstName}} {{contact.lastName}}</h3>
                     <p class="phone">{{contact.phone}}</p>
@@ -17,3 +19,4 @@
         </div>
     </div>
 </div>
+
