@@ -1,6 +1,6 @@
 "use strict"; 
 
-app.controller("ViewCtrl", function($rootScope, $scope, ContactService){
+app.controller("ViewCtrl", function($location, $rootScope, $scope, ContactService){
     $scope.contacts = [];  
     
     const getContacts = () => {
@@ -22,4 +22,9 @@ app.controller("ViewCtrl", function($rootScope, $scope, ContactService){
             console.log(err); 
         });
     };
+
+    $scope.routeToNew = () => {
+        $location.path('/contacts/new');
+    };
+
 }); 
