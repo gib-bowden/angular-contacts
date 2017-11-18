@@ -1,7 +1,8 @@
 <div class="text-center" id="contacts-view">
     <h1>Contacts</h1>
     <div id="contacts">
-        <div ng-repeat="contact in contacts" class="col-sm-6 col-md-4 contact">
+        <div ng-show="!contacts.length">You have no friends. Make some up <a ng-href="#!/contacts/new">here</a> </div>
+        <div ng-show="contacts.length" ng-repeat="contact in contacts" class="col-sm-6 col-md-4 contact">
             <div class="thumbnail">
                 <button ng-click="deleteMovie(contact.id)" class="btn btn-warning delete-btn">X<i class="fa fa-trash-o"></i></i></button>   
                 <div class="caption">
