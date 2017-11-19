@@ -10,6 +10,7 @@
                 <button ng-click="deleteContact(favorite.id)" class="btn btn-danger delete-btn"><i class="fa fa-trash-o"></i></button>
                 <button ng-click="toggleFavorite(favorite)" class="btn btn-default favorite-btn"><i ng-class="{'fa fa-star-o' : !favorite.isFavorite, 'fa fa-star' : favorite.isFavorite}"></i></button> 
                 <button ng-click="editContact(favorite.id)" class="btn btn-default edit-btn"><i class="fa fa-pencil"></i></i></button> 
+                <button ng-click="contactDetail(contact.id)" class="btn btn-default detail-btn"><i class="fa fa-search"></i></i></button> 
                 <div class="caption">
                     <h3 class="name">{{favorite.firstName}} {{favorite.lastName}}</h3>
                     <p class="phone">{{favorite.phone}}</p>
