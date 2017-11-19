@@ -1,4 +1,19 @@
 <div class="text-center" id="contacts-view">
-    <h1>View</h1>
-    {{controller}}
+    <h1>Contacts</h1>
+    <div id="contacts">
+        <div ng-show="!contacts.length">
+            <div>You have no friends. Make some up.</div>             
+            <button ng-click="routeToNew()" class="btn btn-primary new-btn">Add Contact</i></button> 
+        </div>
+        <div ng-show="contacts.length" ng-repeat="contact in contacts" class="col-sm-6 col-md-4 contact">
+            <div class="thumbnail">
+                <button ng-click="deleteContact(contact.id)" class="btn btn-warning delete-btn">X<i class="fa fa-trash-o"></i></i></button>   
+                <div class="caption">
+                    <h3 class="name">{{contact.firstName}} {{contact.lastName}}</h3>
+                    <p class="phone">{{contact.phone}}</p>
+                    <p class="email">{{contact.email}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
