@@ -13,7 +13,8 @@ app.controller("EditCtrl", function($location, $rootScope, $q, $routeParams, $sc
     
     const getContact = () => {
         ContactService.getSingleContact($routeParams.id).then((results) => {            
-            $scope.contact = results.data; 
+            $scope.contact = results.data;
+            $scope.contact.id = $routeParams.id;
         }).catch((err) => {
             console.log(err); 
         });
