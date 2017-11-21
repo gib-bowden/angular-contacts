@@ -1,0 +1,24 @@
+<div class="text-center" id="contacts-detail">
+    <h1>Contact Detail</h1>
+    <div id="contacts">
+        <div class="col-sm-12 col-md-12 contact">
+            <div class="thumbnail">
+                <div ng-if="contact" id="button-group">
+                    <button ng-click="deleteContact()" class="btn btn-danger delete-btn"><i class="fa fa-trash-o"></i></button>
+                    <button ng-click="toggleFavorite()" class="btn btn-default favorite-btn"><i ng-class="{'fa fa-star-o' : !contact.isFavorite, 'fa fa-star' : contact.isFavorite}"></i></button> 
+                    <button ng-click="editContact()" class="btn btn-default edit-btn"><i class="fa fa-pencil"></i></i></button>
+                </div>
+                <div class="caption">
+                    <h1 class="name">{{contact.firstName}} {{contact.lastName}}</h1>
+                    <h3 class="phone">{{contact.phone}}</h3>
+                    <h3 class="email">{{contact.email}}</h3>
+                    <h3 class="street-1">{{contact.street1}}</h3>
+                    <h3 ng-if="contact.street2" class="street-2">{{contact.street2}}</h3>
+                    <h3 class="city">{{contact.city}}</h3>
+                    <h3 class="state">{{contact.state}}</h3>
+                    <h3 class="zip">{{contact.zip}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

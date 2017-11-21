@@ -12,8 +12,8 @@ app.controller("NewCtrl", function($rootScope, $scope, $timeout, ContactService)
         if ($scope.newContactForm.$valid) {
             $scope.contact.uid = $rootScope.uid;
             ContactService.addNewContact($scope.contact).then((result) => {
-                $scope.contact={};
                 if (result.status === 200) {
+                    $scope.contact={};
                     $scope.newContactForm.$setUntouched();
                     $scope.isSuccess = true;
                     alertTimeout(3); 

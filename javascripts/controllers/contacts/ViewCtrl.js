@@ -14,15 +14,29 @@ app.controller("ViewCtrl", function($location, $rootScope, $scope, ContactServic
     getContacts(); 
 
     $scope.deleteContact = (contactId) => {
-         ContactService.deleteContact(contactId).then((result) => {
+         ContactService.deleteContact(contactId).then(() => {
             getContacts();  
         }).catch((err) => {
             console.log(err); 
         });
     };
 
+    $scope.toggleFavorite = (contact) => {
+        contact.isFavorite = !contact.isFavorite;
+        delete contact.$$hashKey;
+        ContactService.updateContact(contact.id, contact); 
+    };
+
     $scope.routeToNew = () => {
         $location.path('/contacts/new');
+    };
+
+    $scope.editContact = (contactId) => {
+        $location.path(`/contacts/edit/${contactId}`); 
+    };
+
+    $scope.contactDetail = (contactId) => {
+        $location.path(`/contacts/detail/${contactId}`); 
     };
 
 }); 

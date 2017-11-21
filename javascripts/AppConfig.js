@@ -34,6 +34,8 @@ app.run(function($location, $rootScope, FIREBASE_CONFIG, AuthService){
           event.preventDefault();
           $location.path('/login');
         }
+
+        $rootScope.prevRoute = prevRoute; 
       });
 
 
@@ -59,6 +61,14 @@ app.config(function($routeProvider){
         .when("/contacts/view", {
             templateUrl: 'partials/contacts/view.html',
             controller: 'ViewCtrl'
+        })
+        .when("/contacts/edit/:id", {
+            templateUrl: 'partials/contacts/edit.html',
+            controller: 'EditCtrl'
+        })
+        .when("/contacts/detail/:id", {
+            templateUrl: 'partials/contacts/detail.html',
+            controller: 'DetailCtrl'
         })
         .otherwise("/login");
 }); 
