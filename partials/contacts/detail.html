@@ -3,9 +3,11 @@
     <div id="contacts">
         <div class="col-sm-12 col-md-12 contact">
             <div class="thumbnail">
-                <button ng-click="deleteContact(contact.id)" class="btn btn-danger delete-btn"><i class="fa fa-trash-o"></i></button>
-                <button ng-click="toggleFavorite(contact)" class="btn btn-default favorite-btn"><i ng-class="{'fa fa-star-o' : !contact.isFavorite, 'fa fa-star' : contact.isFavorite}"></i></button> 
-                <button ng-click="editContact(contact.id)" class="btn btn-default edit-btn"><i class="fa fa-pencil"></i></i></button>
+                <div ng-if="contact" id="button-group">
+                    <button ng-click="deleteContact()" class="btn btn-danger delete-btn"><i class="fa fa-trash-o"></i></button>
+                    <button ng-click="toggleFavorite()" class="btn btn-default favorite-btn"><i ng-class="{'fa fa-star-o' : !contact.isFavorite, 'fa fa-star' : contact.isFavorite}"></i></button> 
+                    <button ng-click="editContact()" class="btn btn-default edit-btn"><i class="fa fa-pencil"></i></i></button>
+                </div>
                 <div class="caption">
                     <h1 class="name">{{contact.firstName}} {{contact.lastName}}</h1>
                     <h3 class="phone">{{contact.phone}}</h3>

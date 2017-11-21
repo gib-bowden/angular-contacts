@@ -12,7 +12,7 @@ app.controller("EditCtrl", function($location, $rootScope, $q, $routeParams, $sc
     };
     
     const getContact = () => {
-        ContactService.getSingleContact($routeParams.id).then((results) => {
+        ContactService.getSingleContact($routeParams.id).then((results) => {            
             $scope.contact = results.data; 
         }).catch((err) => {
             console.log(err); 
@@ -20,18 +20,21 @@ app.controller("EditCtrl", function($location, $rootScope, $q, $routeParams, $sc
     };
 
     getContact(); 
-    
-    
+
+    const getPreviousPath = () => {
+        return ($rootScope.prevRoute.params.id) ? $rootScope.prevRoute.$$route.originalPath.replace(/:id/i, `${$rootScope.prevRoute.params.id}`) : $rootScope.prevRoute.$$route.originalPath;
+    }; 
+
 
     $scope.submitForm = ()  => {
         if ($scope.editContactForm.$valid) {
-            ContactService.updateContact($scope.contact.id, $scope.contact).then((result) => {
-                $scope.contact={};
+            ContactService.updateContact($routeParams.id, $scope.contact).then((result) => {
                 if (result.status === 200) {
+                    $scope.contact={};
                     $scope.editContactForm.$setUntouched();
                     $scope.isSuccess = true;
                     alertTimeout(3).then(() => {
-                        $location.path(`/contacts/view`); //update to return to previous path
+                        $location.path(getPreviousPath()); //update to return to previous path
                     }); 
                 }
                 else {

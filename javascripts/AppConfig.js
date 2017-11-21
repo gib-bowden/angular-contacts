@@ -34,6 +34,8 @@ app.run(function($location, $rootScope, FIREBASE_CONFIG, AuthService){
           event.preventDefault();
           $location.path('/login');
         }
+
+        $rootScope.prevRoute = prevRoute; 
       });
 
 

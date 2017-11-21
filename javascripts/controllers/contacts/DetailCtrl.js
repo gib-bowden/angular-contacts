@@ -12,22 +12,21 @@ app.controller("DetailCtrl", function($location, $rootScope, $q, $routeParams, $
 
     getContact(); 
 
-    $scope.deleteContact = (contactId) => {
-        ContactService.deleteContact(contactId).then(() => {
+    $scope.deleteContact = () => {
+        ContactService.deleteContact($routeParams.id).then(() => {
             $location.path('/contacts/view'); 
        }).catch((err) => {
             console.log(err); 
        });
    };
 
-   $scope.toggleFavorite = (contact) => {
-       contact.isFavorite = !contact.isFavorite;
-       delete contact.$$hashKey;
-       ContactService.updateContact(contact.id, contact); 
+   $scope.toggleFavorite = () => {
+       $scope.contact.isFavorite = !$scope.contact.isFavorite;
+       ContactService.updateContact($routeParams.id, $scope.contact); 
    };
 
-   $scope.editContact = (contactId) => {
-       $location.path(`/contacts/edit/${contactId}`); 
+   $scope.editContact = () => {
+       $location.path(`/contacts/edit/${$routeParams.id}`); 
    };
     
 
