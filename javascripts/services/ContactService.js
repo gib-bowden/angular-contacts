@@ -2,6 +2,8 @@
 
 app.service("ContactService", function($http, $q, FIREBASE_CONFIG){
 
+    let scope = {}; 
+
     const addNewContact = (contact) => {
         return $http.post(`${FIREBASE_CONFIG.databaseURL}/contacts.json`, JSON.stringify(contact));
     };
@@ -33,6 +35,15 @@ app.service("ContactService", function($http, $q, FIREBASE_CONFIG){
     const getSingleContact = (contactId) => {
         return $http.get(`${FIREBASE_CONFIG.databaseURL}/contacts/${contactId}.json?`);
     };
+
+    const setScope = (inheritedScope) => {
+        scope = inheritedScope; 
+    };
+
+    const getScope = () => {
+        return scope; 
+    };
+
 
 
 

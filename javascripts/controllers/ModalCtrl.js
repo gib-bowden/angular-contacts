@@ -4,6 +4,7 @@ app.controller("ModalCtrl", ['$scope', '$uibModal', '$log',
 
     function ($scope, $uibModal, $log) {
 
+
         $scope.showForm = function () {
             $scope.message = "Show Form Button Clicked";
             console.log($scope.message);
@@ -11,7 +12,7 @@ app.controller("ModalCtrl", ['$scope', '$uibModal', '$log',
             var modalInstance = $uibModal.open({
                 templateUrl: 'partials/modal.html',
                 controller: ModalInstanceCtrl,
-                scope: $scope,
+                scope: $scope.$parent.$parent,
                 resolve: {
                     userForm: function () {
                         return $scope.userForm;
@@ -28,6 +29,7 @@ app.controller("ModalCtrl", ['$scope', '$uibModal', '$log',
     }]);
 
 var ModalInstanceCtrl = function ($scope, $uibModalInstance, userForm) {
+    $scope = $scope.$parent.$parent; 
     $scope.form = {};
     $scope.submitForm = function () {
         if ($scope.form.userForm.$valid) {
@@ -41,4 +43,6 @@ var ModalInstanceCtrl = function ($scope, $uibModalInstance, userForm) {
     $scope.cancel = function () {
         $uibModalInstance.dismiss('cancel');
     };
+
+    console.log("parent of parent scope on modal", $scope);
 };

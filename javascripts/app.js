@@ -2,5 +2,5 @@
 
 "use strict"; 
 
-const app = angular.module('contactsApp', ["ngAnimate", "ngRoute", "ngSanitize"]); 
+const app = angular.module('contactsApp', ["ngAnimate", "ngRoute", "ngSanitize", "ui.bootstrap"]); 
 

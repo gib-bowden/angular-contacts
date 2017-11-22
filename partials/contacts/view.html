@@ -11,6 +11,7 @@
                 <button ng-click="toggleFavorite(contact)" class="btn btn-default favorite-btn"><i ng-class="{'fa fa-star-o' : !contact.isFavorite, 'fa fa-star' : contact.isFavorite}"></i></button> 
                 <button ng-click="editContact(contact.id)" class="btn btn-default edit-btn"><i class="fa fa-pencil"></i></i></button>
                 <button ng-click="contactDetail(contact.id)" class="btn btn-default detail-btn"><i class="fa fa-search"></i></i></button> 
+                <button ng-controller="ModalCtrl" class="btn btn-primary" ng-click="showForm()">Edit Modal</button>
                 <div class="caption">
                     <h3 class="name">{{contact.firstName}} {{contact.lastName}}</h3>
                     <p class="phone">{{contact.phone}}</p>

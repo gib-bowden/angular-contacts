@@ -1,6 +1,6 @@
 "use strict"; 
 
-app.controller("EditCtrl", function($location, $rootScope, $q, $routeParams, $scope, $timeout, ContactService){
+app.controller("EditCtrl", function($location, $log, $modal, $rootScope, $q, $routeParams, $scope, $timeout, ModalCtrl, ContactService){
 
     const alertTimeout = (timeoutInSeconds) => {
         return $q((resolve, reject) => {
