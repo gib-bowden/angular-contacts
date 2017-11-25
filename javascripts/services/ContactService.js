@@ -45,7 +45,5 @@ app.service("ContactService", function($http, $q, FIREBASE_CONFIG){
     };
 
 
-
-
     return {addNewContact, deleteContact, getFbContacts, getSingleContact, updateContact}; 
 });

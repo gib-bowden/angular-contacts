@@ -11,6 +11,10 @@ app.controller("ViewCtrl", function($location, $rootScope, $scope, ContactServic
         }); 
     };
 
+    $scope.$on("updateContacts",() => {
+        getContacts(); 
+     });
+
     getContacts(); 
 
     $scope.deleteContact = (contactId) => {
@@ -39,7 +43,7 @@ app.controller("ViewCtrl", function($location, $rootScope, $scope, ContactServic
         $location.path(`/contacts/detail/${contactId}`); 
     };
 
-    console.log($scope);
+    console.log("scope on View", $scope);
 
 
 }); 

@@ -1,4 +1,7 @@
-<div ng-controller="EditCtrl" id="contacts-edit">
+<div class="modal-header">
+    <h3>Edit</h3>
+</div>
+<div  id="contacts-edit">
     
     
         <div ng-show="isSuccess" id="success-message" class="fade in alert alert-success alert-dismissible" role="alert">
@@ -15,6 +18,7 @@
     
     
         <form name="editContactForm" ng-submit="submitForm()" novalidate>
+            <div class="modal-body">
             <div class="form-group col-sm-6">
                 <label for="inputFirstName">First Name</label>
                 <input ng-model="contact.firstName" required type="input" class="form-control" id="inputFirstName" aria-describedby="firstName" placeholder="First Name">
@@ -113,6 +117,10 @@
                     Add to Favorites
                 </label>
             </div>
+        </div>
+        <div class="modal-footer">
             <button ng-disabled="editContactForm.$invalid" class="btn btn-primary save-btn">Save</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
         </form>
     </div>
