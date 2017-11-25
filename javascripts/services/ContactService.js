@@ -1,6 +1,6 @@
 "use strict"; 
 
-app.service("ContactService", function($http, $q, FIREBASE_CONFIG){
+app.service("ContactService", function($http, $q, $timeout, FIREBASE_CONFIG){
 
     let scope = {}; 
 
@@ -36,14 +36,16 @@ app.service("ContactService", function($http, $q, FIREBASE_CONFIG){
         return $http.get(`${FIREBASE_CONFIG.databaseURL}/contacts/${contactId}.json?`);
     };
 
-    const setScope = (inheritedScope) => {
-        scope = inheritedScope; 
+    const alertTimeout = (timeoutInSeconds) => {
+        return $q((resolve, reject) => {
+            $timeout(() => {
+                $('.alert').alert('close');
+                resolve(); 
+            }, timeoutInSeconds * 1000);  
+        });    
     };
 
-    const getScope = () => {
-        return scope; 
-    };
 
 
-    return {addNewContact, deleteContact, getFbContacts, getSingleContact, updateContact}; 
+    return {addNewContact, alertTimeout, deleteContact, getFbContacts, getSingleContact, updateContact}; 
 });

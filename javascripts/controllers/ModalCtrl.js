@@ -6,6 +6,7 @@ app.controller("ModalCtrl", ['$rootScope', '$scope', '$uibModal', '$log',
 
         $scope.launchModal = (template, controller) => {
 
+            dismissOpenModals(); 
             var modalInstance = $uibModal.open({
                 templateUrl: template, 
                 controller: controller, 
@@ -16,6 +17,17 @@ app.controller("ModalCtrl", ['$rootScope', '$scope', '$uibModal', '$log',
             }, function () {
                 $scope.$emit('updateContacts');
             });
+        };
+
+        const dismissOpenModals = () => {
+            $('.modal-content > .ng-scope').each(function()
+                {
+                    try
+                    {
+                        $(this).scope().$dismiss();
+                    }
+                    catch(_) {}
+                });
         };
     }
 ]);

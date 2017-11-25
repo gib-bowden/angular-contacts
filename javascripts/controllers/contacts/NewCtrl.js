@@ -2,15 +2,6 @@
 
 app.controller("NewCtrl", function($uibModal, $q, $rootScope, $scope, $timeout, ContactService){
 
-   
-    const alertTimeout = (timeoutInSeconds) => {
-        return $q((resolve, reject) => {
-            $timeout(() => {
-                $('.alert').alert('close');
-                resolve(); 
-            }, timeoutInSeconds * 1000);  
-        });    
-    };
 
     $scope.cancel = function () {
         $scope.$dismiss('cancel');
@@ -24,18 +15,18 @@ app.controller("NewCtrl", function($uibModal, $q, $rootScope, $scope, $timeout, 
                     $scope.contact={};
                     $scope.newContactForm.$setUntouched();
                     $scope.isSuccess = true;
-                    alertTimeout(1).then(() => {
+                    ContactService.alertTimeout(1).then(() => {
                         $scope.$dismiss('closed'); 
                     });  
                 }
                 else {
                     $scope.isSuccess = false;
-                    alertTimeout(3);
+                    ContactService.alertTimeout(3);
                 }
             }).catch((err) => {
                 console.log(err); 
                 $scope.isSuccess = false;
-                alertTimeout(3); 
+                ContactService.alertTimeout(3); 
             });
         }
     };
