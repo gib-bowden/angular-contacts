@@ -15,6 +15,10 @@ app.controller("FavoritesCtrl", function($location, $rootScope, $scope, ContactS
 
     getFavorites(); 
 
+    $scope.$on("updateContacts",() => {
+        getFavorites();
+     });
+
     $scope.deleteContact = (contactId) => {
          ContactService.deleteContact(contactId).then(() => {
             getFavorites();  

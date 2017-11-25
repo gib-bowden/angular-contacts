@@ -1,8 +1,9 @@
 "use strict"; 
 
-app.controller("NewCtrl", function($uibModal, $q, $rootScope, $scope, $timeout, ContactService){
-
-   
+app.controller("EditModalCtrl", function ($uibModal, $q, $scope, $timeout, $uibModalInstance, ContactService) {
+     
+    $scope.contact = angular.copy($scope.contact);                
+    
     const alertTimeout = (timeoutInSeconds) => {
         return $q((resolve, reject) => {
             $timeout(() => {
@@ -12,21 +13,22 @@ app.controller("NewCtrl", function($uibModal, $q, $rootScope, $scope, $timeout, 
         });    
     };
 
-    $scope.cancel = function () {
-        $scope.$dismiss('cancel');
-    };
-
+    const cleanContact = () => {
+        delete $scope.contact.$$hashKey; 
+    };   
+        
+    
     $scope.submitForm = ()  => {
-        if ($scope.newContactForm.$valid) {
-            $scope.contact.uid = $rootScope.uid;
-            ContactService.addNewContact($scope.contact).then((result) => {
+        if ($scope.editContactForm.$valid) {
+            cleanContact(); 
+            ContactService.updateContact($scope.contact.id, $scope.contact).then((result) => {
                 if (result.status === 200) {
                     $scope.contact={};
-                    $scope.newContactForm.$setUntouched();
+                    $scope.editContactForm.$setUntouched();
                     $scope.isSuccess = true;
                     alertTimeout(1).then(() => {
-                        $scope.$dismiss('closed'); 
-                    });  
+                        $uibModalInstance.dismiss('closed'); 
+                    }); 
                 }
                 else {
                     $scope.isSuccess = false;
@@ -39,6 +41,8 @@ app.controller("NewCtrl", function($uibModal, $q, $rootScope, $scope, $timeout, 
             });
         }
     };
-}); 
-
-
+    
+    $scope.cancel = function () {
+        $uibModalInstance.dismiss('cancel');
+    };
+});
