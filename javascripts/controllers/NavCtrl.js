@@ -15,4 +15,9 @@ app.controller("NavCtrl", function($location, $rootScope, $scope, $window, AuthS
     $scope.toggleView = () => {
         $scope.favoritesView = !$scope.favoritesView; 
     };
+
+    $rootScope.searchTextNav = {
+        text: ""
+    };  
+
 });

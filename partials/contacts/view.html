@@ -1,15 +1,11 @@
 <div class="text-center" id="contacts-view">
     <h1>Contacts</h1>
     <div id="contacts">
-        <div ng-show="contacts.length" class="input-group input-group-lg col-xs-6 col-xs-offset-3">
-                <span class="input-group-addon glyphicon glyphicon-search" aria-hidden="true"></span>
-                <input type="text" class="form-control" placeholder="Find a contact" ng-model="searchText">
-        </div>
         <div ng-show="!contacts.length">
             <div>You have no friends. Make some up.</div>             
             <button ng-controller="ModalCtrl" ng-click="launchModal('partials/contacts/new.html','NewCtrl')" class="btn btn-primary new-btn">Add Contact</i></button> 
         </div>
-        <div ng-show="contacts.length" ng-repeat="contact in contacts | filter: searchText" class="col-sm-6 col-md-4 contact">
+        <div ng-show="contacts.length" ng-repeat="contact in contacts | filter: searchTextNav.text" class="col-sm-6 col-md-4 contact">
             <div class="thumbnail">
                 <button ng-click="deleteContact(contact.id)" class="btn btn-danger delete-btn"><i class="fa fa-trash-o"></i></button>
                 <button ng-click="toggleFavorite(contact)" class="btn btn-default favorite-btn"><i ng-class="{'fa fa-star-o' : !contact.isFavorite, 'fa fa-star' : contact.isFavorite}"></i></button> 

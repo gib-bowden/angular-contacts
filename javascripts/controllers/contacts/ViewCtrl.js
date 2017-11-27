@@ -43,4 +43,6 @@ app.controller("ViewCtrl", function($location, $rootScope, $scope, ContactServic
         $location.path(`/contacts/detail/${contactId}`); 
     };
 
+    console.log($scope); 
+
 }); 
