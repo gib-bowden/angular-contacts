@@ -2,19 +2,10 @@
 
 app.controller("DetailCtrl", function($location, $rootScope, $q, $routeParams, $scope, $timeout, ContactService){
 
-    const getContact = () => {
-        ContactService.getSingleContact($routeParams.id).then((results) => {
-            $scope.contact = results.data; 
-        }).catch((err) => {
-            console.log(err); 
-        });
-    };
-
-    getContact(); 
 
     $scope.deleteContact = () => {
-        ContactService.deleteContact($routeParams.id).then(() => {
-            $location.path('/contacts/view'); 
+        ContactService.deleteContact($scope.contact.id).then(() => {
+            $scope.$dismiss('cancel');
        }).catch((err) => {
             console.log(err); 
        });
@@ -22,12 +13,15 @@ app.controller("DetailCtrl", function($location, $rootScope, $q, $routeParams, $
 
    $scope.toggleFavorite = () => {
        $scope.contact.isFavorite = !$scope.contact.isFavorite;
-       ContactService.updateContact($routeParams.id, $scope.contact); 
+       delete $scope.contact.$$hashKey;
+       ContactService.updateContact($scope.contact.id, $scope.contact); 
    };
 
-   $scope.editContact = () => {
-       $location.path(`/contacts/edit/${$routeParams.id}`); 
-   };
+   $scope.cancel = function () {
+    $scope.$dismiss('cancel');
+};
+
+
     
 
 }); 

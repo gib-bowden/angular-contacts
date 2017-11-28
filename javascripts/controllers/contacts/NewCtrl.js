@@ -1,11 +1,10 @@
 "use strict"; 
 
-app.controller("NewCtrl", function($rootScope, $scope, $timeout, ContactService){
+app.controller("NewCtrl", function($uibModal, $q, $rootScope, $scope, $timeout, ContactService){
 
-    const alertTimeout = (timeoutInSeconds) => {
-        $timeout(() => {
-            $('.alert').alert('close');
-        }, timeoutInSeconds * 1000);     
+
+    $scope.cancel = function () {
+        $scope.$dismiss('cancel');
     };
 
     $scope.submitForm = ()  => {
@@ -16,16 +15,18 @@ app.controller("NewCtrl", function($rootScope, $scope, $timeout, ContactService)
                     $scope.contact={};
                     $scope.newContactForm.$setUntouched();
                     $scope.isSuccess = true;
-                    alertTimeout(3); 
+                    ContactService.alertTimeout(1).then(() => {
+                        $scope.$dismiss('closed'); 
+                    });  
                 }
                 else {
                     $scope.isSuccess = false;
-                    alertTimeout(3);
+                    ContactService.alertTimeout(3);
                 }
             }).catch((err) => {
                 console.log(err); 
                 $scope.isSuccess = false;
-                alertTimeout(3); 
+                ContactService.alertTimeout(3); 
             });
         }
     };

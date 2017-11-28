@@ -1,11 +1,11 @@
 "use strict"; 
 
 app.controller("FavoritesCtrl", function($location, $rootScope, $scope, ContactService){
-    $scope.favorites = [];  
+    $scope.contacts = [];  
     
     const getFavorites = () => {
         ContactService.getFbContacts($rootScope.uid).then((results) => {
-            $scope.favorites = results.filter((result) => {
+            $scope.contacts = results.filter((result) => {
                 return result.isFavorite;
             });
         }).catch((err) => {
@@ -14,6 +14,10 @@ app.controller("FavoritesCtrl", function($location, $rootScope, $scope, ContactS
     };
 
     getFavorites(); 
+
+    $scope.$on("updateContacts",() => {
+        getFavorites();
+     });
 
     $scope.deleteContact = (contactId) => {
          ContactService.deleteContact(contactId).then(() => {

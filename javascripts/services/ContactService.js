@@ -1,6 +1,8 @@
 "use strict"; 
 
-app.service("ContactService", function($http, $q, FIREBASE_CONFIG){
+app.service("ContactService", function($http, $q, $timeout, FIREBASE_CONFIG){
+
+    let scope = {}; 
 
     const addNewContact = (contact) => {
         return $http.post(`${FIREBASE_CONFIG.databaseURL}/contacts.json`, JSON.stringify(contact));
@@ -34,7 +36,16 @@ app.service("ContactService", function($http, $q, FIREBASE_CONFIG){
         return $http.get(`${FIREBASE_CONFIG.databaseURL}/contacts/${contactId}.json?`);
     };
 
+    const alertTimeout = (timeoutInSeconds) => {
+        return $q((resolve, reject) => {
+            $timeout(() => {
+                $('.alert').alert('close');
+                resolve(); 
+            }, timeoutInSeconds * 1000);  
+        });    
+    };
 
 
-    return {addNewContact, deleteContact, getFbContacts, getSingleContact, updateContact}; 
+
+    return {addNewContact, alertTimeout, deleteContact, getFbContacts, getSingleContact, updateContact}; 
 });

@@ -15,14 +15,14 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <!-- Nav options that show when user is authenticated (has a UID) -->
         <ul class="nav navbar-nav navbar-right" ng-show="uid">
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contacts<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a ng-href="#!/contacts/new">Add New</a></li>
-                    <li><a ng-href="#!/contacts/favorites">View Favorites</a></li>
-                    <li><a ng-href="#!/contacts/view">View All</a></li>
-                </ul>
-                </li>
+            <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input ng-model="searchTextNav.text" type="text" class="form-control" placeholder="Search Contacts">
+                    </div>
+            </form>
+            <li><a ng-controller="ModalCtrl" ng-click="launchModal('partials/contacts/new.html','NewCtrl')">Add Contact</a></li>
+            <li><a ng-click="toggleView()" ng-if="!favoritesView" ng-href="#!/contacts/favorites">View Favorites</a></li>
+            <li><a ng-click="toggleView()" ng-if="favoritesView" ng-href="#!/contacts/view">View All</a></li>
             <li><a ng-click="logoutUser()">Logout</a></li>
         </ul>
 
